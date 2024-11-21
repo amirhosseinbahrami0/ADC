@@ -7,11 +7,12 @@
 
 
 #include <avr/io.h>
+#include <util/delay.h>
+#include "ADC.h"
 
-int main(void)
-{
-    while(1)
-    {
-        //TODO:: Please write your application code 
-    }
+/*
+*@brief Initialize the ADC
+*/
+void adc_init(void){
+
 }
