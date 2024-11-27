@@ -31,7 +31,10 @@ void adc_init(void){
 uint16_t adc_get(void){
 	//Start Conversion
 	ADCSRA |= (1 << ADSC);
-	
+	while((ADCSRA & (1<<ADIF)) != 0x10); 
+	ADCSRA |= (1 << ADIF); 
+
+	    
 	
 }
 
@@ -40,7 +43,7 @@ uint16_t adc_get(void){
 */
 void adc_enable(){
 	ADCSRA |= (1 << ADEN);
-}
+
 
 /*
 *@brief disable ADC for power save
