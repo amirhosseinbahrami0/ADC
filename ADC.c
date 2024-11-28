@@ -14,6 +14,7 @@
 #define ADC_INPUT_CHANNEL 0b00000000 //PIN A0
 #define ADC_PRESCALER 0b00000111 //ADC Prescaler Selection(128)
 
+int A , ALOW ;
 
 /*
 *@brief Initialize the ADC
@@ -33,7 +34,10 @@ uint16_t adc_get(void){
 	ADCSRA |= (1 << ADSC);
 	while((ADCSRA & (1<<ADIF)) != 0x10); 
 	ADCSRA |= (1 << ADIF); 
-
+	ALOW = (int)ADCH * 256;
+	A = (int)ADCL ;
+	A = A + ALOW;
+	return A;
 	    
 	
 }
